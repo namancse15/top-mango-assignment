@@ -1,9 +1,13 @@
 .sidebar {
 
     &-wrapper {
-        background-color: #30004010;
+        background-color: $bg-tertiary;
         padding: 16px 0px 24px 8px;
         backdrop-filter: blur(10px);
+
+        @media (prefers-color-scheme: dark) {
+            background-color: rgb(0 0 0 / 64%);
+        }
 
         @include mobile-only {
             padding: 8px 0 0 0;
@@ -34,7 +38,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #0400119C;
+    color: $text-secondary;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -56,9 +60,13 @@
 
     &.selected {
         font-weight: 600;
-        color: #211F26;
-        background-color: #F7F6FC;
+        color: $text-primary;
+        background-color: $bg-secondary;
         border-top-left-radius: 99px;
+
+        .check-icon {
+            color: $icon-success;
+        }
         border-bottom-left-radius: 99px;
 
         @include mobile-only {

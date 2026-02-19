@@ -1,5 +1,5 @@
 .feed-board {
-    background-color: #F7F6FC;
+    background-color: $bg-secondary;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -20,7 +20,7 @@
 
 .new-post-container {
     position: relative;
-    background-color: #E6F6EB;
+    background-color: $bg-accent;
     border-radius: 24px;
     background-image: url('@/assets/images/confetti.svg');
     background-size: contain;
@@ -29,7 +29,7 @@
     align-items: center;
 
     @include mobile-only {
-        border: 1px solid #8ECEAA;
+        border: 1px solid $border-accent;
         background-position: center;
 
         .post-card {
@@ -38,7 +38,7 @@
     }
 
     .label {
-        color: #218358;
+        color: $text-accent;
         font-size: 14px;
         line-height: 20px;
         font-weight: 600;
@@ -48,8 +48,8 @@
 
 .post-card {
     border-radius: 24px;
-    border: 1px solid #14003527;
-    background-color: #FFFFFF;
+    border: 1px solid $border-secondary;
+    background-color: $bg-card;
 
     .head {
         display: flex;
@@ -71,19 +71,20 @@
                 font-weight: 600;
                 font-size: 16px;
                 line-height: 24px;
-                color: #211F26;
+                color: $text-primary;
             }
 
             .timestamp {
                 font-weight: 400;
                 font-size: 12px;
                 line-height: 16px;
-                color: #0400119C;
+                color: $text-secondary;
             }
         }
 
         .options-icon-container {
             height: 48px;
+            color: $icon-primary;
 
             .options-icon {
                 cursor: pointer;
@@ -94,7 +95,7 @@
     .caption {
         padding: 16px;
         padding-top: 0;
-        color: #211F26;
+        color: $text-primary;
         font-size: 14px;
         line-height: 20px;
         font-weight: 400;

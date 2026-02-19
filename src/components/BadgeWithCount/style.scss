@@ -1,6 +1,7 @@
 .badge-with-count {
     display: flex;
     cursor: pointer;
+    color: $text-primary;
 
     .count {
         font-weight: 500;

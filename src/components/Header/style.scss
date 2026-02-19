@@ -1,8 +1,8 @@
 .header {
-    background-color: #FFFFFF;
+    background-color: $bg-primary;
 
     @include mobile-only {
-        background-color: rgba(48, 0, 64, 0.062745098);
+        background-color: $bg-tertiary;
         backdrop-filter: blur(10px);
     }
     
@@ -11,7 +11,7 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid #F2EFF3;
+        border-bottom: 1px solid $border-primary;
         align-items: center;
 
         @include mobile-only {
@@ -25,6 +25,10 @@
             img {
                 max-width: 100%;
                 height: auto;
+
+                @media (prefers-color-scheme: dark) {
+                    filter: invert(100%) hue-rotate(180deg);
+                }
             }
         }
 
@@ -34,7 +38,8 @@
             align-items: center;
 
             .bell-notification {
-                border: 1px solid #08003145;
+                border: 1px solid $border-muted;
+                color: $icon-primary;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -54,8 +59,8 @@
         padding-right: 24px;
         padding-left: 18px;
         width: 100%;
-        border-top: 1px solid #F2EFF3;
-        border-bottom: 1px solid #F2EFF3;
+        border-top: 1px solid $border-primary;
+        border-bottom: 1px solid $border-primary;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -77,13 +82,14 @@
             }
 
             .back-nav {
+                color: $icon-primary;
                 display: flex;
                 align-items: center;
                 gap: 8px;
                 cursor: pointer;
                 
                 .content {
-                    color: #211F26;
+                    color: $text-primary;
                     font-weight: 600;
                     font-size: 16px;
                     line-height: 24px;
@@ -116,17 +122,18 @@
                 font-size: 16px;
                 font-weight: 600;
                 line-height: 24px;
-                color: #211F26
+                color: $text-primary;
             }
 
             .info-icon-container {
+                color: $icon-primary;
                 display: flex;
                 align-items: center;
 
                 @include mobile-only {
                     height: 40px;
                     width: 40px;
-                    background-color: #30004010;
+                    background-color: $bg-tertiary;
                     border-radius: 9999px;
                     justify-content: center;
                 }
@@ -137,7 +144,7 @@
 
 .vertical-line {
     width: 1px;
-    background-color: #14003527;
+    background-color: $vertical-line;
     height: 32px;
 
     &-wrapper {

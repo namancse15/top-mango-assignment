@@ -1,5 +1,5 @@
 .badge {
-    background-color: #30004010;
+    background-color: $bg-tertiary;
     border-radius: 9999px;
     padding: 4px 8px;
     display: flex;
@@ -7,6 +7,6 @@
     align-items: center;
 
     &.border {
-        border: 1px solid #20003618;
+        border: 1px solid $border-tertiary;
     }
 }

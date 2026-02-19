@@ -1,7 +1,10 @@
+@use './styles/theme.scss' as *;
+
 :root {
   font-family: system-ui, Be Vietnam Pro, Avenir, Helvetica, Arial, sans-serif;
   background-image: url("@/assets/images/sample-bg.jpg");
   background-size: cover;
+  color: $text-primary;
 
   * {
     box-sizing: border-box;
@@ -16,4 +19,5 @@ body {
 
 body {
   margin: 0;
+  background: $page-bg;
 }
