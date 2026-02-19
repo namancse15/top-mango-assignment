@@ -55,7 +55,7 @@ const PostCard = (props: Props) => {
                         <div className="timestamp">{`${renderTimeGap(createdAt)}d`}</div>
                     </div>
                     <span className="options-icon-container">
-                        <MenuSvgIcon />
+                        <MenuSvgIcon className='options-icon' />
                     </span>
                 </div>
                 <div className="caption">

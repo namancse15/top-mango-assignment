@@ -41,6 +41,7 @@
                 border-radius: 9999px;
                 height: 32px;
                 width: 32px;
+                cursor: pointer;
             }
 
             .avatar-wrapper {
@@ -79,6 +80,7 @@
                 display: flex;
                 align-items: center;
                 gap: 8px;
+                cursor: pointer;
                 
                 .content {
                     color: #211F26;
