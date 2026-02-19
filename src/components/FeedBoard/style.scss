@@ -12,6 +12,10 @@
     gap: 24px;
     padding-top: 24px;
     overflow: auto;
+
+    @include mobile-only {
+        padding: 24px 8px 16px 8px;
+    }
 }
 
 .new-post-container {
@@ -22,6 +26,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include mobile-only {
+        border: 1px solid #8ECEAA;
+
+        .post-card {
+            border: 0;
+        }
+    }
 
     .label {
         color: #218358;
@@ -85,6 +97,10 @@
     .attachment {
         img {
             max-width: 640px;
+
+            @include mobile-only {
+                width: 100%;
+            }
         }
     }
 

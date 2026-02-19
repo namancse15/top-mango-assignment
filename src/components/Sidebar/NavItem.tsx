@@ -21,7 +21,7 @@ const NavItem = (props: Props) => {
 
     return (
         <div className={classes} onClick={handleClick}>
-            {isSelected ? <ClockSvgIcon /> : null}
+            {isSelected ? <ClockSvgIcon className="clock-icon" /> : null}
             <span className="label">{label}</span>
             {isSelected ? null : <LockSimpleSvgIcon />}
         </div>

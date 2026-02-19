@@ -1,0 +1,69 @@
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+// Min-width: styles apply at this breakpoint and above
+@mixin respond-above($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @if $value and $value > 0 {
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else if $value == 0 {
+    @content;
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}";
+  }
+}
+
+@mixin respond-below($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @if $value and $value > 0 {
+    @media (max-width: calc(#{$value} - 1px)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}";
+  }
+}
+
+@mixin respond-between($lower, $upper) {
+  $min: map-get($breakpoints, $lower);
+  $max: map-get($breakpoints, $upper);
+  @if $min != null and $max != null and $max > $min {
+    @media (min-width: $min) and (max-width: calc(#{$max} - 1px)) {
+      @content;
+    }
+  } @else {
+    @warn "Invalid breakpoint range: #{$lower} to #{$upper}";
+  }
+}
+
+@mixin mobile-only {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin large-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
