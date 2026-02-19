@@ -21,7 +21,8 @@ const FeedList = () => {
                 reactionsCount={18}
                 uniqueEmojis={['U+1F60D', 'U+1F64F']}
                 commentsCount={10}
-                createdAt={'2026-02-18'}
+                createdAt={'2026-02-15T16:45:00Z'}
+                isNewPost
             />
             <PostCard 
                 userName={'Ashraf Idrishi'}
@@ -38,7 +39,7 @@ const FeedList = () => {
                 reactionsCount={18}
                 uniqueEmojis={['U+1F60D', 'U+1F64F']}
                 commentsCount={10}
-                createdAt={'2026-02-18'}
+                createdAt={'2026-01-15T10:30:00Z'}
             />
         </div>
     )

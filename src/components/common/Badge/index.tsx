@@ -3,10 +3,23 @@ import "@/components/common/Badge/style.scss"
 
 type BadgeProps = {
     children?: ReactNode
+    withBorder?: boolean
+    className?: string
 }
 
 const Badge: React.FC<BadgeProps> = (props: BadgeProps) => {
-    return <span className="badge">
+    const {
+        withBorder = false,
+        className,
+    } = props;
+
+    const classes = [
+        'badge',
+        className,
+        withBorder ? 'border' : null
+    ].filter(Boolean).join(' ')
+
+    return <span className={classes}>
         {props.children}
     </span>
 }

@@ -2,8 +2,9 @@ import { JSX } from 'react';
 import MenuSvgIcon from '@/components/common/InlineSvgIcons/MenuSvgIcon'
 import SmileySvgIcon from '@/components/common/InlineSvgIcons/SmileySvgIcon'
 import ChatCircleSvgIcon from '@/components/common/InlineSvgIcons/ChatCircleSvgIcon'
-import Badge from '@/components/common/Badge'
-import BadgeWithCount from '@/components/BadgeWithCount';
+import IconBadge from '@/components/common/IconBadge'
+import BadgeWithCount from '@/components/BadgeWithCount'
+import dayjs from 'dayjs';
 
 type Props = {
     userName: string;
@@ -14,6 +15,7 @@ type Props = {
     uniqueEmojis: Array<string>;
     commentsCount: number;
     createdAt: string;
+    isNewPost?: boolean
 }
 
 const renderEmoji = (code: string) => {
@@ -30,50 +32,77 @@ const PostCard = (props: Props) => {
         uniqueEmojis,
         commentsCount = 0,
         createdAt,
+        isNewPost = false,
     } = props;
-    return (
-        <div className="post-card">
-            <div className="head">
-                <span className="avatar-container">
-                    {avatarImage}
-                </span>
-                <div className="details-container">
-                    <div className="user-name">{userName}</div>
-                    <div className="timestamp">{createdAt}</div>
-                </div>
-                <span className="options-icon-container">
-                    <MenuSvgIcon />
-                </span>
-            </div>
-            <div className="caption">
-                {caption}
-            </div>
-            <div className="attachment">
-                {attachment}
-            </div>
-            <div className="actions-container">
-                <span className='section'>
-                    <span>
-                        <BadgeWithCount
-                            icon={
-                                <>
-                                    {uniqueEmojis.map((code) => (
-                                        <span>{renderEmoji(code)}</span>
-                                    ))}
-                                </>
-                            }
-                            count={reactionsCount}
-                        />
+
+    const renderTimeGap = (timeStamp: string) => {
+        if(dayjs(timeStamp).isValid()) {
+            const diffDays = dayjs().diff(dayjs(createdAt), 'days');
+            return diffDays
+        }
+        return '--'
+    }
+
+    const content = (
+        <>
+            <div className="post-card">
+                <div className="head">
+                    <span className="avatar-container">
+                        {avatarImage}
                     </span>
-                    <span><Badge><SmileySvgIcon height='20px' width='20px' /></Badge></span>
-                    <span><Badge><ChatCircleSvgIcon height='20px' width='20px' /></Badge></span>
-                </span>
-                <span className='section right'>
-                    {commentsCount > 1 ? `${commentsCount} Comments` : `${commentsCount} Comment`}
-                </span>
+                    <div className="details-container">
+                        <div className="user-name">{userName}</div>
+                        <div className="timestamp">{`${renderTimeGap(createdAt)}d`}</div>
+                    </div>
+                    <span className="options-icon-container">
+                        <MenuSvgIcon />
+                    </span>
+                </div>
+                <div className="caption">
+                    {caption}
+                </div>
+                <div className="attachment">
+                    {attachment}
+                </div>
+                <div className="actions-container">
+                    <div className='section'>
+                        <span>
+                            <BadgeWithCount
+                                icon={
+                                    <>
+                                        {uniqueEmojis.map((code) => (
+                                            <span>{renderEmoji(code)}</span>
+                                        ))}
+                                    </>
+                                }
+                                count={reactionsCount}
+                            />
+                        </span>
+                        <IconBadge><SmileySvgIcon height='20px' width='20px' /></IconBadge>
+                        <IconBadge><ChatCircleSvgIcon height='20px' width='20px' /></IconBadge>
+                    </div>
+                    <div className='section right'>
+                        {commentsCount > 1 ? `${commentsCount} Comments` : `${commentsCount} Comment`}
+                    </div>
+                </div>
             </div>
-        </div>
+        </>
     )
+
+    
+    if (isNewPost) {
+        return (
+            <div className='new-post-container'>
+                {/* <img src={confetti} alt="confetti" /> */}
+                <span className='label'>Your Submission</span>
+                {content}
+            </div>
+        )
+    }
+
+    return content
+        
+    
 }
 
 export default PostCard
