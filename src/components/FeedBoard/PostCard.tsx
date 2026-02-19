@@ -1,6 +1,9 @@
-import MenuSvgIcon from '@/components/common/InlineSvgIcons/MenuSvgIcon'
 import { JSX } from 'react';
-import BadgeWithCount from '../BadgeWithCount';
+import MenuSvgIcon from '@/components/common/InlineSvgIcons/MenuSvgIcon'
+import SmileySvgIcon from '@/components/common/InlineSvgIcons/SmileySvgIcon'
+import ChatCircleSvgIcon from '@/components/common/InlineSvgIcons/ChatCircleSvgIcon'
+import Badge from '@/components/common/Badge'
+import BadgeWithCount from '@/components/BadgeWithCount';
 
 type Props = {
     userName: string;
@@ -13,6 +16,10 @@ type Props = {
     createdAt: string;
 }
 
+const renderEmoji = (code: string) => {
+    return code ? String.fromCodePoint(parseInt(code.replace(/^U\+/i, ''), 16)) : ''
+}
+
 const PostCard = (props: Props) => {
     const {
         userName,
@@ -21,7 +28,7 @@ const PostCard = (props: Props) => {
         attachment,
         reactionsCount,
         uniqueEmojis,
-        commentsCount,
+        commentsCount = 0,
         createdAt,
     } = props;
     return (
@@ -48,15 +55,21 @@ const PostCard = (props: Props) => {
                 <span className='section'>
                     <span>
                         <BadgeWithCount
-                            icon={<>{Number(uniqueEmojis[0])}</>}
+                            icon={
+                                <>
+                                    {uniqueEmojis.map((code) => (
+                                        <span>{renderEmoji(code)}</span>
+                                    ))}
+                                </>
+                            }
                             count={reactionsCount}
                         />
                     </span>
-                    <span>Reaction Button</span>
-                    <span>Add comment</span>
+                    <span><Badge><SmileySvgIcon height='20px' width='20px' /></Badge></span>
+                    <span><Badge><ChatCircleSvgIcon height='20px' width='20px' /></Badge></span>
                 </span>
-                <span className='section'>
-                    {commentsCount}
+                <span className='section right'>
+                    {commentsCount > 1 ? `${commentsCount} Comments` : `${commentsCount} Comment`}
                 </span>
             </div>
         </div>

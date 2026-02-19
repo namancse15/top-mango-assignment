@@ -24,6 +24,8 @@ const Header = () => {
           </span>
           <Avatar 
             src={user_1} alt="user_1"
+            height={32}
+            width={32}
           />
         </span>
       </div>
