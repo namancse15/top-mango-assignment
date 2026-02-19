@@ -120,13 +120,14 @@
             }
 
             .info-icon-container {
+                display: flex;
+                align-items: center;
+
                 @include mobile-only {
                     height: 40px;
                     width: 40px;
                     background-color: #30004010;
                     border-radius: 9999px;
-                    display: flex;
-                    align-items: center;
                     justify-content: center;
                 }
             }
