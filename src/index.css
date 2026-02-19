@@ -1,11 +1,5 @@
 :root {
   font-family: system-ui, Be Vietnam Pro, Avenir, Helvetica, Arial, sans-serif;
-  /* color-scheme: light dark;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
-  /* background-color: #F7F6FC; */
   background-image: url("@/assets/images/sample-bg.jpg");
   background-size: cover;
 
