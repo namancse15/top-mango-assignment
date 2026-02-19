@@ -1,0 +1,11 @@
+.app {
+  display: flex;
+  flex-direction: column;
+
+  &-header {}
+
+  &-body {
+    display: flex;
+    flex-direction: row;
+  }
+}

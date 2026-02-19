@@ -1,0 +1,67 @@
+.sidebar {
+
+    &-wrapper {
+        background-color: #30004010;
+        padding: 16px 0px 24px 8px;
+        // height: 100vw;
+        backdrop-filter: blur(10px);
+    }
+
+    &-content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    color: #0400119C;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 12px 16px;
+    gap: 8px;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.selected {
+        font-weight: 600;
+        color: #211F26;
+        background-color: #F7F6FC;
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+
+        // &::before {
+        //     content:"";
+        //     // position:absolute;
+        //     right: 0;
+        //     width: 28px;
+        //     height: 28px;
+        //     background: transparent;
+        //     border-bottom-right-radius: 999px;
+        //     // box-shadow: 0 0 0 14px #e7e9f1; /* match container bg (adjust to your bg) */
+        //     pointer-events:none;
+        // }
+
+        // &::after {
+        //     content:"";
+        //     position:absolute;
+        //     right: 0;
+        //     width: 28px;
+        //     height: 28px;
+        //     background: transparent;
+        //     border-radius: 999px;
+        //     // box-shadow: 0 0 0 14px #e7e9f1; /* match container bg (adjust to your bg) */
+        //     pointer-events:none;
+        // }
+    }
+
+    .label {
+        width: 190px;
+    }
+}

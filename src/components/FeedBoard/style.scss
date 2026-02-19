@@ -1,0 +1,43 @@
+.feed-board {
+    background-color: #F7F6FC;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.feed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 24px;
+}
+
+.post-card {
+    border-radius: 24px;
+    border: 1px solid #14003527;
+    background-color: #FFFFFF;
+
+    .head {
+        .avatar-container {}
+
+        .details-container {
+            .user-name {}
+            .timestamp {}
+        }
+
+        .options-icon-container {}
+    }
+
+    .caption {}
+
+    .attachment {}
+
+    .actions-container {
+
+        .section {}
+
+    }
+
+
+}

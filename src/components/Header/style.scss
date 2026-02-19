@@ -1,0 +1,101 @@
+.header {
+    background-color: #FFFFFF;
+
+    &-main {
+        padding: 14px 24px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #F2EFF3;
+        align-items: center;
+
+        .left-content {
+            display: flex;
+            align-items: center;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        .right-content {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+
+            .bell-notification {
+                border: 1px solid #08003145;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 9999px;
+                height: 32px;
+                width: 32px;
+            }
+
+            .avatar-wrapper {
+                flex-shrink: 0;
+            }
+        }
+    }
+
+    &-nav {
+        padding-right: 24px;
+        padding-left: 18px;
+        width: 100%;
+        border-top: 1px solid #F2EFF3;
+        border-bottom: 1px solid #F2EFF3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            .back-nav {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                
+                .content {
+                    color: #211F26;
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+
+            .day-indicator {
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 26px;
+            }
+        }
+
+        &-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .info-message {
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 24px;
+                color: #211F26
+            }
+        }
+    }
+}
+
+.vertical-line {
+    width: 1px;
+    background-color: #14003527;
+    height: 32px;
+
+    &-wrapper {
+        padding: 8px 0;
+    }
+}
