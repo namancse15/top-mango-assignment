@@ -18,7 +18,7 @@ const HeaderNav = () => {
             </span>
             <span className="header-nav-right">
                 <span className="info-message" >9-Day Fitness Challenge</span>
-                <InfoSvgIcon />
+                <div className="info-icon-container"><InfoSvgIcon /></div>
             </span>
         </div>
     )

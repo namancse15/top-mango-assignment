@@ -18,7 +18,8 @@ const Sidebar = () => {
       <div className="sidebar-content">
         {days.map((item) => (
           <NavItem
-            label={'Day-'+item}
+            prefix="Day"
+            value={item}
             isSelected={item === selected}
             onClick={() => handleSelection(item)}
           />

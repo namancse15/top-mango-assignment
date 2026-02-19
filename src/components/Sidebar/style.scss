@@ -3,7 +3,6 @@
     &-wrapper {
         background-color: #30004010;
         padding: 16px 0px 24px 8px;
-        // height: 100vw;
         backdrop-filter: blur(10px);
 
         @include mobile-only {
@@ -15,6 +14,14 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
+        overflow: auto;
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar { 
+            display: none;
+        }
 
         @include mobile-only {
             flex-direction: row;
@@ -25,20 +32,22 @@
 
 .nav-item {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     color: #0400119C;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
     padding: 12px 16px;
-    gap: 8px;
+    // gap: 8px;
 
     @include mobile-only {
         flex-direction: column;
+        
 
-        .clock-icon {
+        .check-icon {
             display: none;
-        } 
+        }
     }
 
     &:hover {
@@ -49,12 +58,12 @@
         font-weight: 600;
         color: #211F26;
         background-color: #F7F6FC;
-        border-top-left-radius: 16px;
-        border-bottom-left-radius: 16px;
+        border-top-left-radius: 99px;
+        border-bottom-left-radius: 99px;
 
         @include mobile-only {
-            border-top-left-radius: 16px;
-            border-top-right-radius: 16px;
+            border-top-left-radius: 99px;
+            border-top-right-radius: 99px;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }
@@ -82,6 +91,30 @@
         //     // box-shadow: 0 0 0 14px #e7e9f1; /* match container bg (adjust to your bg) */
         //     pointer-events:none;
         // }
+
+        .label {
+            @include mobile-only {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                // gap: 8px;
+
+                .value {
+                    font-weight: 700;
+                    font-size: 24px;
+                    line-height: 30px;
+                    margin-top: 8px;
+                }
+            }
+
+            .prefix {
+                &::after {
+                    @include mobile-only {
+                        content: "";
+                    }
+                }            
+            }
+        }
     }
 
     .label {
@@ -89,7 +122,20 @@
 
         @include mobile-only {
             width: 100%;
+            white-space: nowrap;
         }
 
+        .prefix {
+            &::after {
+                content: " - ";
+
+                @include mobile-only {
+                    content: " ";
+                }
+            }            
+        }
+
+        // .value {}
     }
+
 }

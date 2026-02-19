@@ -1,14 +1,22 @@
-import ClockSvgIcon from "@/components/common/InlineSvgIcons/ClockSvgIcon"
+import CheckSvgIcon from "@/components/common/InlineSvgIcons/CheckSvgIcon"
 import LockSimpleSvgIcon from "@/components/common/InlineSvgIcons/LockSimpleSvgIcon"
 
 type Props = {
-    label?: string;
+    // label?: string;
     onClick?: () => void;
     isSelected?: boolean;
+    value?: number | string;
+    prefix?: string;
 } 
 
 const NavItem = (props: Props) => {
-    const { label, onClick, isSelected } = props
+    const { 
+        // label, 
+        onClick, 
+        isSelected,
+        value,
+        prefix
+    } = props
 
     const handleClick = () => {
         onClick?.()
@@ -19,11 +27,17 @@ const NavItem = (props: Props) => {
         isSelected ? 'selected' : null
     ].filter(Boolean).join(" ")
 
+    const label = (
+        <>
+            <span className="prefix">{prefix}</span>
+            <span className="value">{value}</span>
+        </>
+    )
+
     return (
         <div className={classes} onClick={handleClick}>
-            {isSelected ? <ClockSvgIcon className="clock-icon" /> : null}
             <span className="label">{label}</span>
-            {isSelected ? null : <LockSimpleSvgIcon />}
+            {isSelected ? <CheckSvgIcon className="check-icon" /> : <LockSimpleSvgIcon />}
         </div>
     )
 }
